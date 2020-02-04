@@ -26,7 +26,7 @@ $map->get('phpinfo', '/phpinfo.php', function (ResponseFactory $factory, StreamF
     ob_start();
     phpinfo();
 
-    return $factory->createResponse()->withBody($stream->createStream(ob_get_clean()));
+    return $factory->createResponse()->withBody($stream->createStream(ob_get_clean() ?: ''));
 });
 
 return $router;
